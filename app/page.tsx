@@ -9,12 +9,34 @@ import Ornament from "@/components/ui/Ornament";
 import { ButtonLink } from "@/components/ui/Button";
 import { site } from "@/lib/site-config";
 import { getUpcomingEvents } from "@/lib/calendar";
+import {
+  BookIcon,
+  ChaliceIcon,
+  MortarboardIcon,
+  CrossIcon,
+} from "@/components/ui/CommitmentIcons";
 
 const commitments = [
-  { title: "Preaching God's Word", detail: "Scripture proclaimed faithfully, Sunday after Sunday." },
-  { title: "Administering the Sacraments", detail: "Baptism, Absolution, and Holy Communion as the Spirit's means of grace." },
-  { title: "Teaching the Christian Faith", detail: "Catechesis and instruction rooted in the Book of Concord." },
-  { title: "Liturgical Worship", detail: "Historic liturgy that fixes our eyes on Jesus and His gifts." },
+  {
+    title: "Preaching God's Word",
+    detail: "Scripture proclaimed faithfully, Sunday after Sunday.",
+    icon: BookIcon,
+  },
+  {
+    title: "Administering the Sacraments",
+    detail: "Baptism, Absolution, and Holy Communion as the Spirit's means of grace.",
+    icon: ChaliceIcon,
+  },
+  {
+    title: "Teaching the Christian Faith",
+    detail: "Catechesis and instruction rooted in the Book of Concord.",
+    icon: MortarboardIcon,
+  },
+  {
+    title: "Liturgical Worship",
+    detail: "Historic liturgy that fixes our eyes on Jesus and His gifts.",
+    icon: CrossIcon,
+  },
 ];
 
 const lifeAtTrinity = [
@@ -83,7 +105,7 @@ export default async function Home() {
       </section>
 
       <section className="py-16 sm:py-24">
-        <Container className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+        <Container className="grid items-start gap-12 lg:grid-cols-[1.1fr_0.9fr]">
           <div>
             <SectionHeading eyebrow="Who We Are" title="Centered on Christ Crucified" />
             <p className="mt-5 text-ink-muted">
@@ -98,8 +120,9 @@ export default async function Home() {
             </p>
             <dl className="mt-8 grid gap-4 sm:grid-cols-2">
               {commitments.map((item) => (
-                <Card key={item.title}>
-                  <dt className="font-heading text-lg font-semibold text-navy">
+                <Card key={item.title} accent hover>
+                  <item.icon className="h-7 w-7 text-gold-600" />
+                  <dt className="mt-3 font-heading text-lg font-semibold text-navy">
                     {item.title}
                   </dt>
                   <dd className="mt-1 text-sm text-ink-muted">{item.detail}</dd>
@@ -126,7 +149,7 @@ export default async function Home() {
           <div className="mt-8 grid gap-6 sm:grid-cols-3">
             {lifeAtTrinity.map((item) => (
               <div key={item.title} className="group">
-                <div className="relative aspect-4/3 overflow-hidden rounded-lg border border-navy-100 shadow-soft transition-shadow duration-200 group-hover:shadow-elevated">
+                <div className="relative aspect-4/3 overflow-hidden rounded-lg border border-navy-100 shadow-deep">
                   <Image
                     src={item.image}
                     alt={item.title}

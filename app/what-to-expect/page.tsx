@@ -69,6 +69,14 @@ const seasons = [
   { name: "Pentecost / Time of the Church", color: "Green", body: "The long season tracing the life of the Church under the ongoing work of the Holy Spirit." },
 ];
 
+const liturgicalColorSwatches: Record<string, string> = {
+  Blue: "#2f4d8f",
+  White: "#ffffff",
+  Green: "#2f6b45",
+  Purple: "#5b3a7a",
+  Scarlet: "#9c2b2b",
+};
+
 export default function WhatToExpectPage() {
   return (
     <>
@@ -109,7 +117,7 @@ export default function WhatToExpectPage() {
         <ol className="relative flex flex-col gap-10 border-l border-navy-100 pl-8">
           {steps.map((step, i) => (
             <li key={step.title} className="relative">
-              <span className="absolute top-0 -left-[calc(2rem+1px)] flex h-8 w-8 items-center justify-center rounded-full bg-navy font-heading text-sm font-semibold text-cream shadow-elevated ring-4 ring-cream">
+              <span className="absolute top-0 -left-11 flex h-8 w-8 items-center justify-center rounded-full bg-navy font-heading text-sm font-semibold text-cream shadow-elevated ring-4 ring-cream">
                 {i + 1}
               </span>
               <h2 className="font-heading text-xl font-semibold text-navy">
@@ -134,9 +142,19 @@ export default function WhatToExpectPage() {
                 key={season.name}
                 className="rounded-xl border border-navy-100 bg-white p-5 shadow-soft transition-shadow duration-200 hover:shadow-elevated"
               >
-                <p className="text-xs font-semibold tracking-widest text-gold-600 uppercase">
-                  {season.color}
-                </p>
+                <div className="flex items-center gap-1.5">
+                  {season.color.split(" / ").map((c) => (
+                    <span
+                      key={c}
+                      aria-hidden
+                      className="h-2.5 w-2.5 shrink-0 rounded-full ring-1 ring-navy-100"
+                      style={{ backgroundColor: liturgicalColorSwatches[c] }}
+                    />
+                  ))}
+                  <p className="text-xs font-semibold tracking-widest text-gold-600 uppercase">
+                    {season.color}
+                  </p>
+                </div>
                 <p className="mt-1 font-heading text-lg font-semibold text-navy">
                   {season.name}
                 </p>

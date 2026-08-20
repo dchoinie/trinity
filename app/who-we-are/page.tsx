@@ -5,6 +5,12 @@ import Container from "@/components/layout/Container";
 import PageHero from "@/components/layout/PageHero";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Card from "@/components/ui/Card";
+import {
+  TrinityIcon,
+  MegaphoneIcon,
+  HeartCrossIcon,
+  ChurchIcon,
+} from "@/components/ui/NamePartIcons";
 
 export const metadata: Metadata = {
   title: "Who We Are",
@@ -16,18 +22,22 @@ const nameParts = [
   {
     word: "Trinity",
     detail: "References our belief in God the Father, Son, and Holy Spirit.",
+    icon: TrinityIcon,
   },
   {
     word: "Evangelical",
     detail: "Jesus and His Gospel remain central to our faith.",
+    icon: MegaphoneIcon,
   },
   {
     word: "Lutheran",
     detail: "We follow the Lutheran Confessions.",
+    icon: HeartCrossIcon,
   },
   {
     word: "Church",
     detail: "We are members of the Lutheran Church—Missouri Synod.",
+    icon: ChurchIcon,
   },
 ];
 
@@ -99,14 +109,17 @@ export default function WhoWeArePage() {
       />
 
       <Container className="py-16 sm:py-20">
-        <div className="relative aspect-[3339/1255] overflow-hidden rounded-lg border border-navy-100 shadow-elevated">
-          <Image
-            src="/congregation.jpg"
-            alt="Members of Trinity Evangelical Lutheran Church gathered outside the front of the church"
-            fill
-            className="object-contain"
-            sizes="(min-width: 1024px) 1024px, 100vw"
-          />
+        <div className="relative">
+          <div className="absolute -inset-2 rounded-xl border border-gold/30" />
+          <div className="relative aspect-[3339/1255] overflow-hidden rounded-lg shadow-deep">
+            <Image
+              src="/congregation.jpg"
+              alt="Members of Trinity Evangelical Lutheran Church gathered outside the front of the church"
+              fill
+              className="object-contain"
+              sizes="(min-width: 1024px) 1024px, 100vw"
+            />
+          </div>
         </div>
         <p className="mt-3 text-sm text-ink-muted">
           The members of Trinity, gathered outside the church.
@@ -117,7 +130,8 @@ export default function WhoWeArePage() {
         <div className="grid grid-cols-2 gap-6">
           {nameParts.map((part) => (
             <Card key={part.word} hover>
-              <p className="font-heading text-2xl font-semibold text-navy">
+              <part.icon className="h-7 w-7 text-gold-600" />
+              <p className="mt-3 font-heading text-2xl font-semibold text-navy">
                 {part.word}
               </p>
               <p className="mt-2 text-sm text-ink-muted">{part.detail}</p>

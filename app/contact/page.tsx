@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Container from "@/components/layout/Container";
 import PageHero from "@/components/layout/PageHero";
 import ContactForm from "@/components/ContactForm";
-import ImagePlaceholder from "@/components/ui/ImagePlaceholder";
+import GoogleMapEmbed from "@/components/GoogleMapEmbed";
 import Ornament from "@/components/ui/Ornament";
 import { site } from "@/lib/site-config";
 
@@ -33,7 +33,7 @@ export default function ContactPage() {
               </a>
             </address>
           </div>
-          <ImagePlaceholder label="Map — pending" ratio="aspect-[4/3]" />
+          <GoogleMapEmbed />
         </div>
         <ContactForm />
       </Container>

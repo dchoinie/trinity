@@ -35,7 +35,7 @@ export default function EventList({ events }: { events: CalendarEvent[] }) {
         const { month, day, weekday } = formatDateParts(event.start);
         return (
           <li key={event.id}>
-            <Card hover padded={false} className="flex gap-6 p-6">
+            <Card hover padded={false} className="flex items-center gap-6 p-6">
               <div className="flex w-24 shrink-0 flex-col items-center justify-center rounded-lg border border-gold/20 bg-gold-100/60 py-3 text-center">
                 <span className="text-xs font-semibold tracking-wide text-gold-600 uppercase">
                   {month}
@@ -45,7 +45,7 @@ export default function EventList({ events }: { events: CalendarEvent[] }) {
                 </span>
                 <span className="text-xs text-ink-muted">{weekday}</span>
               </div>
-              <div>
+              <div className="min-w-0 flex-1">
                 <h3 className="font-heading text-xl font-semibold text-navy">
                   {event.title}
                 </h3>
@@ -54,6 +54,18 @@ export default function EventList({ events }: { events: CalendarEvent[] }) {
                   {event.location ? ` · ${event.location}` : ""}
                 </p>
               </div>
+              <svg
+                aria-hidden
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={1.5}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="hidden h-5 w-5 shrink-0 text-gold-600/50 sm:block"
+              >
+                <path d="m9 6 6 6-6 6" />
+              </svg>
             </Card>
           </li>
         );
