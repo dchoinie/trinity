@@ -1,26 +1,109 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-cream: #faf6ef;
+  --color-cream-100: #f3ecdf;
+  --color-ink: #211f1c;
+  --color-ink-muted: #524d45;
+  --color-navy: #1f2c45;
+  --color-navy-50: #eef1f6;
+  --color-navy-100: #dbe1eb;
+  --color-navy-200: #c2cbdc;
+  --color-navy-700: #17213380;
+  --color-navy-800: #172133;
+  --color-navy-900: #0f1728;
+  --color-gold: #b3893f;
+  --color-gold-100: #f2e6cd;
+  --color-gold-300: #d3ac6a;
+  --color-gold-600: #8c6529;
+
+  --shadow-soft: 0 1px 2px rgba(15, 23, 40, 0.05), 0 1px 1px rgba(15, 23, 40, 0.04);
+  --shadow-elevated: 0 6px 16px -4px rgba(15, 23, 40, 0.14), 0 2px 6px -2px rgba(15, 23, 40, 0.08);
+  --shadow-deep: 0 20px 40px -12px rgba(15, 23, 40, 0.28), 0 8px 16px -8px rgba(15, 23, 40, 0.16);
+  --shadow-gold: 0 10px 24px -8px rgba(179, 137, 63, 0.45);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-cream: var(--color-cream);
+  --color-cream-100: var(--color-cream-100);
+  --color-ink: var(--color-ink);
+  --color-ink-muted: var(--color-ink-muted);
+  --color-navy: var(--color-navy);
+  --color-navy-50: var(--color-navy-50);
+  --color-navy-100: var(--color-navy-100);
+  --color-navy-200: var(--color-navy-200);
+  --color-navy-800: var(--color-navy-800);
+  --color-navy-900: var(--color-navy-900);
+  --color-gold: var(--color-gold);
+  --color-gold-100: var(--color-gold-100);
+  --color-gold-300: var(--color-gold-300);
+  --color-gold-600: var(--color-gold-600);
+  --font-heading: var(--font-cormorant);
+  --font-body: var(--font-source-sans);
+  --shadow-soft: var(--shadow-soft);
+  --shadow-elevated: var(--shadow-elevated);
+  --shadow-deep: var(--shadow-deep);
+  --shadow-gold: var(--shadow-gold);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-body), Arial, Helvetica, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading), Georgia, serif;
+}
+
+::selection {
+  background: var(--color-gold-100);
+  color: var(--color-navy);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+/* Fine paper grain — layered over cream/white sections for a printed, tactile
+   surface rather than a flat digital fill. Kept extremely low-opacity so it
+   never competes with text contrast. */
+.texture-grain {
+  position: relative;
+  isolation: isolate;
+}
+.texture-grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.05;
+  mix-blend-mode: multiply;
+}
+
+/* Deep navy panels — layered radial glow plus a faint diagonal hairline
+   weave, so solid-navy sections read as fabric/vestment-like rather than a
+   flat corporate fill. */
+.texture-navy {
+  position: relative;
+  isolation: isolate;
+  background-color: var(--color-navy);
+  background-image:
+    radial-gradient(ellipse 80% 60% at 15% -10%, rgba(211, 172, 106, 0.16), transparent 60%),
+    radial-gradient(ellipse 70% 70% at 100% 120%, rgba(15, 23, 40, 0.9), transparent 60%),
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.035) 0px, rgba(255, 255, 255, 0.035) 1px, transparent 1px, transparent 10px);
+}
+
+/* Ornamental gold hairline — a thin rule with light-to-dark-to-light taper,
+   used in place of flat solid-color borders for section and panel dividers. */
+.rule-gold {
+  height: 1px;
+  background-image: linear-gradient(to right, transparent, var(--color-gold) 50%, transparent);
+  opacity: 0.6;
 }
