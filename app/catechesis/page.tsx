@@ -2,17 +2,11 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Container from "@/components/layout/Container";
 import PageHero from "@/components/layout/PageHero";
-import SampleDataNotice from "@/components/ui/SampleDataNotice";
 
 export const metadata: Metadata = {
   title: "Catechesis",
   description: "Catechism instruction at Trinity Evangelical Lutheran Church.",
 };
-
-const schedule = [
-  { group: "Confirmation Class (Grades 6–8)", when: "Wednesdays, 4:00 – 5:00 PM" },
-  { group: "Adult Instruction Class", when: "By arrangement with Pastor Mumme" },
-];
 
 export default function CatechesisPage() {
   return (
@@ -51,29 +45,6 @@ export default function CatechesisPage() {
               Confirmands at Trinity, gathered at the altar with Pastor Mumme.
             </p>
           </div>
-        </div>
-
-        <div className="mt-12">
-          <SampleDataNotice>
-            The schedule below is a placeholder — confirm actual class times
-            with the church office.
-          </SampleDataNotice>
-          <table className="w-full overflow-hidden rounded-xl border border-navy-100 bg-white text-left shadow-soft">
-            <thead>
-              <tr className="border-b border-navy-100 bg-navy-50">
-                <th className="px-6 py-3 text-sm font-semibold tracking-wide text-gold-600 uppercase">Class</th>
-                <th className="px-6 py-3 text-sm font-semibold tracking-wide text-gold-600 uppercase">When</th>
-              </tr>
-            </thead>
-            <tbody>
-              {schedule.map((row) => (
-                <tr key={row.group} className="border-b border-navy-100 last:border-0">
-                  <td className="px-6 py-4 text-sm text-ink">{row.group}</td>
-                  <td className="px-6 py-4 text-sm text-ink-muted">{row.when}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
         </div>
       </Container>
     </>

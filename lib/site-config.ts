@@ -34,7 +34,6 @@ export const primaryNav: NavItem[] = [
     children: [
       { label: "Who We Are", href: "/who-we-are" },
       { label: "What We Believe", href: "/what-we-believe" },
-      { label: "What To Expect", href: "/what-to-expect" },
       { label: "Staff", href: "/staff" },
     ],
   },
@@ -42,8 +41,7 @@ export const primaryNav: NavItem[] = [
     label: "Worship",
     children: [
       { label: "Worship Schedule", href: "/worship-schedule" },
-      { label: "Sermons", href: "/sermons" },
-      { label: "Bulletins", href: "/bulletins" },
+      { label: "What To Expect", href: "/what-to-expect" },
       { label: "Catechesis", href: "/catechesis" },
     ],
   },
