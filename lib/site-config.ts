@@ -2,6 +2,7 @@ export const site = {
   name: "Trinity Evangelical Lutheran Church",
   shortName: "Trinity Lutheran",
   tagline: "A traditional, liturgical congregation of the Lutheran Church Missouri Synod",
+  url: "https://trinitywaterville.org",
   address: {
     line1: "415 Lake Street West",
     line2: "Waterville, MN 56096",

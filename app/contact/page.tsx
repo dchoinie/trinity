@@ -5,11 +5,13 @@ import ContactForm from "@/components/ContactForm";
 import GoogleMapEmbed from "@/components/GoogleMapEmbed";
 import Ornament from "@/components/ui/Ornament";
 import { site } from "@/lib/site-config";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Contact",
   description: "Get in touch with Trinity Evangelical Lutheran Church, Waterville, MN.",
-};
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return (

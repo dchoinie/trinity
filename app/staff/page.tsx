@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Container from "@/components/layout/Container";
 import PageHero from "@/components/layout/PageHero";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Staff",
   description: "Meet the staff of Trinity Evangelical Lutheran Church, Waterville, MN.",
-};
+  path: "/staff",
+});
 
 export default function StaffPage() {
   return (

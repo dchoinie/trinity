@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import Container from "@/components/layout/Container";
 import PageHero from "@/components/layout/PageHero";
 import Card from "@/components/ui/Card";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Links",
   description: "Helpful links from Trinity Evangelical Lutheran Church.",
-};
+  path: "/links",
+});
 
 const groups = [
   {
@@ -35,8 +37,7 @@ const groups = [
     links: [
       { label: "Higher Things", href: "https://higherthings.org/" },
       { label: "Luther Classical College", href: "https://www.lutherclassical.org/" },
-      // TODO: confirm URL — was on the live site but URL wasn't captured during the scrape
-      { label: "Wittenberg Academy", href: "#" },
+      { label: "Wittenberg Academy", href: "https://wittenbergacademy.org/" },
       { label: "Camp Omega", href: "https://campomega.org/" },
     ],
   },

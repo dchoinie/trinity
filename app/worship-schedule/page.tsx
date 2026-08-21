@@ -3,11 +3,13 @@ import Link from "next/link";
 import Container from "@/components/layout/Container";
 import PageHero from "@/components/layout/PageHero";
 import ServiceTimesCard from "@/components/ServiceTimesCard";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Worship Schedule",
   description: "Join us for worship on Sunday mornings at Trinity Evangelical Lutheran Church.",
-};
+  path: "/worship-schedule",
+});
 
 export default function WorshipSchedulePage() {
   return (

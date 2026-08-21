@@ -5,15 +5,15 @@ import Container from "@/components/layout/Container";
 import PageHero from "@/components/layout/PageHero";
 import Ornament from "@/components/ui/Ornament";
 import { ButtonLink } from "@/components/ui/Button";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Sacred Art",
   description:
-    "Ten paintings by Professor William Bukowski depicting the life of Jesus as reflected in the church's liturgical calendar.",
-};
+    "Nine paintings by Professor William Bukowski depicting the life of Jesus as reflected in the church's liturgical calendar.",
+  path: "/sacred-art",
+});
 
-// The intro line says "ten" paintings but only nine were listed on the
-// live site — confirm the tenth piece with the church before launch.
 const artworks = [
   {
     title: "The Nativity of Our Lord",
@@ -67,7 +67,7 @@ export default function SacredArtPage() {
     <>
       <PageHero
         title="Sacred Art"
-        deck="Professor William Bukowski of Bethany Lutheran College created ten commissioned paintings depicting the life of Jesus as reflected in our liturgical calendar."
+        deck="Professor William Bukowski of Bethany Lutheran College created nine commissioned paintings depicting the life of Jesus as reflected in our liturgical calendar."
       />
       <Container className="py-16 sm:py-20">
         <div className="texture-navy relative mb-14 overflow-hidden rounded-2xl px-8 py-10 text-cream shadow-deep sm:px-14">

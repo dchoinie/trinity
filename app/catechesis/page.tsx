@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Container from "@/components/layout/Container";
 import PageHero from "@/components/layout/PageHero";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Catechesis",
   description: "Catechism instruction at Trinity Evangelical Lutheran Church.",
-};
+  path: "/catechesis",
+});
 
 export default function CatechesisPage() {
   return (

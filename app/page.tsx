@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Container from "@/components/layout/Container";
@@ -9,12 +10,19 @@ import Ornament from "@/components/ui/Ornament";
 import { ButtonLink } from "@/components/ui/Button";
 import { site } from "@/lib/site-config";
 import { getUpcomingEvents } from "@/lib/calendar";
+import { pageMetadata } from "@/lib/seo";
 import {
   BookIcon,
   ChaliceIcon,
   MortarboardIcon,
   CrossIcon,
 } from "@/components/ui/CommitmentIcons";
+
+export const metadata: Metadata = pageMetadata({
+  description:
+    "Trinity Evangelical Lutheran Church is a traditional, liturgical LCMS congregation in Waterville, Minnesota, serving the community since 1909.",
+  path: "/",
+});
 
 const commitments = [
   {
@@ -173,7 +181,7 @@ export default async function Home() {
                 Sacred Art
               </p>
               <h2 className="font-heading text-3xl font-semibold text-cream">
-                Ten Paintings of Christ&apos;s Life
+                Nine Paintings of Christ&apos;s Life
               </h2>
               <Ornament tone="cream" className="mt-3" />
             </div>
@@ -185,7 +193,7 @@ export default async function Home() {
             </Link>
           </div>
           <p className="mt-5 max-w-2xl text-cream/75">
-            Professor William Bukowski of Bethany Lutheran College created ten
+            Professor William Bukowski of Bethany Lutheran College created nine
             commissioned paintings depicting the life of Jesus as reflected in
             the church&apos;s liturgical calendar.
           </p>

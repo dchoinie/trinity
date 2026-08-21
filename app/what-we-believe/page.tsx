@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import Container from "@/components/layout/Container";
 import PageHero from "@/components/layout/PageHero";
 import SectionHeading from "@/components/ui/SectionHeading";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "What We Believe",
   description:
     "What Trinity Evangelical Lutheran Church believes, teaches, and confesses according to Holy Scripture.",
-};
+  path: "/what-we-believe",
+});
 
 const pillars = [
   {

@@ -17,11 +17,33 @@ const sourceSans = Source_Sans_3({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(site.url),
   title: {
     default: site.name,
     template: `%s | ${site.name}`,
   },
   description: site.tagline,
+  keywords: [
+    "Trinity Evangelical Lutheran Church",
+    "Waterville Minnesota church",
+    "Lutheran Church Missouri Synod",
+    "LCMS Waterville MN",
+    "liturgical worship",
+    "Divine Service",
+  ],
+  openGraph: {
+    title: site.name,
+    description: site.tagline,
+    url: site.url,
+    siteName: site.name,
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: site.name,
+    description: site.tagline,
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

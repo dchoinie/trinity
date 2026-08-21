@@ -3,12 +3,14 @@ import Image from "next/image";
 import Container from "@/components/layout/Container";
 import PageHero from "@/components/layout/PageHero";
 import SectionHeading from "@/components/ui/SectionHeading";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "What To Expect",
   description:
     "What to expect at a Divine Service at Trinity Evangelical Lutheran Church, from confession to the Lord's Supper.",
-};
+  path: "/what-to-expect",
+});
 
 const steps = [
   {

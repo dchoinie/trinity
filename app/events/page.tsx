@@ -5,11 +5,13 @@ import EventList from "@/components/EventList";
 import GoogleCalendarEmbed from "@/components/GoogleCalendarEmbed";
 import Ornament from "@/components/ui/Ornament";
 import { getUpcomingEvents } from "@/lib/calendar";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Events",
   description: "Upcoming events at Trinity Evangelical Lutheran Church.",
-};
+  path: "/events",
+});
 
 export default async function EventsPage() {
   const events = await getUpcomingEvents(10);

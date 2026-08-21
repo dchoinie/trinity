@@ -5,6 +5,7 @@ import Container from "@/components/layout/Container";
 import PageHero from "@/components/layout/PageHero";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Card from "@/components/ui/Card";
+import { pageMetadata } from "@/lib/seo";
 import {
   TrinityIcon,
   MegaphoneIcon,
@@ -12,11 +13,12 @@ import {
   ChurchIcon,
 } from "@/components/ui/NamePartIcons";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Who We Are",
   description:
     "Trinity Evangelical Lutheran Church has served Waterville and the surrounding area since 1909.",
-};
+  path: "/who-we-are",
+});
 
 const nameParts = [
   {
