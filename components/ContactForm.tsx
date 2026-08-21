@@ -1,21 +1,16 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { useActionState } from "react";
 import Card from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
+import { submitContactForm, ContactFormState } from "@/app/contact/actions";
+
+const initialState: ContactFormState = { status: "idle" };
 
 export default function ContactForm() {
-  const [status, setStatus] = useState<"idle" | "submitted">("idle");
+  const [state, formAction, pending] = useActionState(submitContactForm, initialState);
 
-  // TODO: wire up to a real backend (Next.js API route + email provider,
-  // or a form service like Formspree) before launch — no submission
-  // handling exists yet.
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setStatus("submitted");
-  }
-
-  if (status === "submitted") {
+  if (state.status === "success") {
     return (
       <Card accent>
         <p className="font-heading text-xl font-semibold text-navy">
@@ -30,7 +25,7 @@ export default function ContactForm() {
 
   return (
     <Card accent padded={false} className="p-8">
-      <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+      <form action={formAction} className="flex flex-col gap-5">
         <div className="grid gap-5 sm:grid-cols-2">
           <Field label="First Name" name="firstName" required />
           <Field label="Last Name" name="lastName" required />
@@ -48,8 +43,11 @@ export default function ContactForm() {
             className="rounded-md border border-navy-100 bg-cream px-3 py-2 text-base text-ink shadow-soft outline-none transition-colors focus:border-gold"
           />
         </label>
-        <Button type="submit" className="mt-2 self-start">
-          Send Message
+        {state.status === "error" && (
+          <p className="text-sm font-medium text-red-600">{state.message}</p>
+        )}
+        <Button type="submit" className="mt-2 self-start" disabled={pending}>
+          {pending ? "Sending..." : "Send Message"}
         </Button>
       </form>
     </Card>
