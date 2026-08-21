@@ -13,7 +13,7 @@ import {
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 const FROM_ADDRESS = "Trinity Evangelical Lutheran Church <contact@trinitywaterville.org>";
-const NOTIFY_TO = "dchoinie@gmail.com";
+const NOTIFY_TO = "pastormumme@gmail.com";
 
 export type ContactFormState = {
   status: "idle" | "success" | "error";
